@@ -1,0 +1,365 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+
+public class Calculator implements MouseListener {
+	public static void main(String[] args) {
+		
+		new Calculator();
+		
+	}
+	private JFrame frame = null;
+	private JPanel topPanel = null; 
+	private JPanel buttonPanel = null;
+	
+	private JButton button_1 = null;
+	private JButton button_2 = null;
+	private JButton button_3 = null;
+	private JButton button_4 = null;
+	private JButton button_5 = null;
+	private JButton button_6 = null;
+	private JButton button_7 = null;
+	private JButton button_8 = null;
+	private JButton button_9 = null;
+	private JButton button_0 = null;
+	private JButton button_Plus = null;
+	private JButton button_Minus = null;
+	private JButton button_Divide = null;
+	private JButton button_Multi = null;
+	private JButton button_Clear = null;
+	private JButton button_Equal = null;
+	private JButton button_Point = null;
+	private JButton button_Neg = null;
+	private JButton button_Exit = null;
+	double firstNum, SecondNum,result;
+	String Opr;
+	
+	
+	private JTextField forIO = null;
+	Border border = BorderFactory.createLineBorder(Color.BLACK,2);
+	
+	
+	public  Calculator()
+	{
+		frame = new JFrame("MINI CALCULATOR");
+	   	 
+    	topPanel = new JPanel();
+        	topPanel.setBorder(border);       	 
+    	buttonPanel = new JPanel();
+        	buttonPanel.setBorder(border);
+        	
+        	button_9 = new JButton("9");
+        	button_9.addMouseListener(this);
+        	
+        	button_8 = new JButton("8");
+        	button_8.addMouseListener(this);
+        	
+        	button_7 = new JButton("7");
+        	button_7.addMouseListener(this);
+        	
+        	button_Plus = new JButton("+");
+        	button_Plus.addMouseListener(this);
+        	
+        	button_6 = new JButton("6");
+        	button_6.addMouseListener(this);
+        	
+        	button_5 = new JButton("5");
+        	button_5.addMouseListener(this);
+        	
+        	button_4 = new JButton("4");
+        	button_4.addMouseListener(this);
+        	
+        	button_Minus = new JButton("-");
+        	button_Minus.addMouseListener(this);
+        	
+        	button_3 = new JButton("3");
+        	button_3.addMouseListener(this);
+        	
+        	button_2 = new JButton("2");
+        	button_2.addMouseListener(this);
+        	
+        	button_1 = new JButton("1");
+        	button_1.addMouseListener(this);
+        	
+        	button_Multi = new JButton("*");
+        	button_Multi.addMouseListener(this);
+        	
+        	button_Point = new JButton(".");
+        	button_Point.addMouseListener(this);
+        	
+        	button_0 = new JButton("0");
+        	button_0.addMouseListener(this);
+
+		button_sin = new JButton("Sin");
+		button_sin.addMouseListener("this");
+        	
+        	button_Equal = new JButton("=");
+        	button_Equal.addMouseListener(this);
+        	
+        	
+        	button_Divide = new JButton("/");
+        	button_Divide.addMouseListener(this);
+        	
+        	button_Neg = new JButton("+/-");
+        	button_Neg.addMouseListener(this);
+        	
+        	button_Clear = new JButton("C");
+        	button_Clear.addMouseListener(this);
+        	
+        	button_Exit = new JButton("EXIT");
+        	button_Exit.addMouseListener(this);
+        	
+        	
+        	forIO = new JTextField();
+        	forIO.addMouseListener(this);
+        	
+        	
+        	
+        	buttonPanel.setLayout(new GridLayout(5,4,5,5));
+        	
+        	buttonPanel.setVisible(true);
+        	
+        	
+        	
+        	
+        	buttonPanel.add(button_9);
+        	buttonPanel.add(button_8);
+        	buttonPanel.add(button_7);
+        	buttonPanel.add(button_Plus);
+        	buttonPanel.add(button_6);
+        	buttonPanel.add(button_5);
+        	buttonPanel.add(button_4);
+        	buttonPanel.add(button_Minus);
+        	buttonPanel.add(button_3);
+        	
+        	buttonPanel.add(button_2);
+        	buttonPanel.add(button_1);
+        	buttonPanel.add(button_Multi);
+        	buttonPanel.add(button_Point);
+        	buttonPanel.add(button_0);
+        	buttonPanel.add(button_Equal);
+        	
+        	
+        	
+        	buttonPanel.add(button_Divide);
+        	buttonPanel.add(button_Neg);
+        	buttonPanel.add(button_Clear);
+        	buttonPanel.add(button_Exit);
+        	
+        	
+        	topPanel.setLayout(new GridLayout(1,1,10,10));   
+        	
+        	frame.add(topPanel);
+        	
+        	topPanel.setVisible(true);
+        	topPanel.add(forIO);
+        	
+        	frame.setLayout(new GridLayout(2,1,10,10));
+          	 
+        	frame.add(topPanel);
+        	frame.add(buttonPanel);
+       	 
+        	frame.setLocationRelativeTo(null);
+        	frame.setSize(300,400);
+        	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   	 
+        	frame.setVisible(true);
+        	
+	}
+
+
+	
+
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		
+		if(e.getSource()==button_1)
+		{
+			String Enter_Number = forIO.getText() + button_1.getText();
+			forIO.setText(Enter_Number);
+		}
+		else if(e.getSource()==button_2)
+		{
+			String Enter_Number = forIO.getText() + button_2.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_3)
+		{
+			String Enter_Number = forIO.getText() + button_3.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_4)
+		{
+			String Enter_Number = forIO.getText() + button_4.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_5)
+		{
+			String Enter_Number = forIO.getText() + button_5.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_6)
+		{
+			String Enter_Number = forIO.getText() + button_6.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_7)
+		{
+			String Enter_Number = forIO.getText() + button_7.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_8)
+		{
+			String Enter_Number = forIO.getText() + button_8.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_9)
+		{
+			String Enter_Number = forIO.getText() + button_9.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_0)
+		{
+			String Enter_Number = forIO.getText() + button_0.getText();
+			forIO.setText(Enter_Number);
+		} 
+		else if(e.getSource()==button_Clear)
+		{
+			String Enter_Number = forIO.getText() + button_Clear.getText();
+			forIO.setText("");
+		}
+		else if(e.getSource()==button_Point)
+		{
+			String Enter_Number = forIO.getText() + button_Point.getText();
+			forIO.setText(Enter_Number);
+		}
+		else if(e.getSource()==button_Neg)
+		{
+			String Enter_Number = forIO.getText();
+			double ops = Double.parseDouble(Enter_Number);
+			ops =ops *(-1);
+			forIO.setText(String.valueOf(ops));
+			
+		}
+		else if (e.getSource()==button_Plus)
+		{
+			String Enter_Number = forIO.getText();
+			firstNum = Double.parseDouble(Enter_Number);
+			Opr = "+";
+			forIO.setText("");
+		}
+		else if (e.getSource()==button_Minus)
+		{
+			String Enter_Number = forIO.getText();
+			firstNum = Double.parseDouble(Enter_Number);
+			Opr = "-";
+			forIO.setText("");
+		}
+		else if (e.getSource()==button_Multi)
+		{
+			String Enter_Number = forIO.getText();
+			firstNum = Double.parseDouble(Enter_Number);
+			Opr = "*";
+			forIO.setText("");
+		}
+		else if (e.getSource()==button_Divide)
+		{
+			String Enter_Number = forIO.getText();
+			firstNum = Double.parseDouble(Enter_Number);
+			Opr = "/";
+			forIO.setText("");
+		}
+		else if(e.getSource() == button_Exit)
+		{
+			System.exit(0);
+		}
+		else if (e.getSource()==button_Equal)
+		{
+			equal();
+		}
+		
+		
+		
+	}
+	private void equal()
+	{
+		try
+		{
+		String Enter_Number = forIO.getText();
+		SecondNum = Double.parseDouble(Enter_Number);
+		if(Opr=="+")
+		{
+			result = firstNum + SecondNum;
+			forIO.setText(firstNum + " + " + SecondNum + " = " + (firstNum + SecondNum));
+		}
+		else if (Opr=="-")
+		{
+			result = firstNum - SecondNum;
+			forIO.setText(firstNum + " - " + SecondNum +  " = " + (firstNum - SecondNum));
+		}
+		else if (Opr=="*")
+		{
+			result = firstNum * SecondNum;
+			forIO.setText(firstNum + " * " + SecondNum + " = " + (firstNum * SecondNum));
+		}
+		else if (Opr=="/")
+		{
+			result = firstNum / SecondNum;
+			forIO.setText(firstNum + " / " + SecondNum + " = " + (firstNum / SecondNum));
+		}
+		}
+		catch(Exception e)
+		{
+			forIO.setText("Math Error");
+		}
+		
+		
+		
+		
+	}
+	
+	
+	
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}
+	
